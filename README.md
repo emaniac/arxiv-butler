@@ -67,16 +67,9 @@ You should now see the venv reflected in your shell prompt.
 
 ### 4) Install dependencies
 ```bash 
-pip install --upgrade pip pip install -r requirements.txt
-``` 
-
-Your `requirements.txt` includes:
-
-- `langchain`, `langchain-core`, `langchain-openai`
-- `python-dotenv`
-- `requests`
-- `pydantic`
-- `pypdf` (for text extraction)
+pip install --upgrade pip 
+pip install -r requirements.txt
+```
 
 ### 5) Create a `.env` file
 
@@ -143,7 +136,9 @@ USER: Please Download the paper.
 
 AGENT: The paper has been successfully downloaded. Path: data/papers/2309.08632v1.pdf
 
-USER: Which model was introduced in the paper? USER: Which model was introduced in the paper?
+USER: Which model was introduced in the paper? 
+
+USER: Which model was introduced in the paper?
 
 AGENT: The paper introduces a model called **phi-CTNL** (pronounced "fictional"), which is a transformer-based language model with 1 million parameters. It is pretrained on a carefully curated, high-quality, non-synthetic dataset consisting of less than 100,000 tokens. The model achieves perfect results across various academic benchmarks, outperforming all known foundation models.
 
@@ -172,20 +167,7 @@ If you want figure understanding later, you’d add a “render page to image + 
 ## Where PDFs are saved
 
 Downloaded PDFs are stored under:
-```
-
-text data/papers/``` 
-
-The download tool returns the absolute local path after saving.
-
----
-```
-
-
-## Where PDFs are saved
-
-Downloaded PDFs are stored under:
-```text
+```text 
 data/papers/
 ``` 
 
@@ -207,15 +189,7 @@ The download tool returns the absolute local path after saving.
 
 ## Troubleshooting
 
-### 1) `ModuleNotFoundError` / imports fail
-Make sure you run from the project root using:
-```bash
-python -m src.main
-``` 
-
-This ensures Python treats `src/` as a package.
-
-### 2) arXiv search returns no results
+### 1) arXiv search returns no results
 Try broader queries:
 - remove author name or quotes
 - try a keyword-only query
@@ -225,7 +199,7 @@ Example:
 you> Find a paper about retrieval-augmented generation evaluation
 ``` 
 
-### 3) PDF downloads but `pdf_extract_text` returns empty/garbled text
+### 2) PDF downloads but `pdf_extract_text` returns empty/garbled text
 Some PDFs have poor text layers (or are scanned). Text extraction quality depends on how the PDF was generated.
 
 Workarounds:
@@ -233,7 +207,7 @@ Workarounds:
 - try a different paper
 - later: add OCR for scanned PDFs
 
-### 4) Logging is too noisy / too quiet
+### 3) Logging is too noisy / too quiet
 Change in `.env`:
 ```dotenv
 LOGGING_LEVEL=DEBUG
