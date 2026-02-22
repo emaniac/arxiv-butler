@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Transformer layers",
+        "intent": "How many layers are in the encoder of the original transformer model?",
+        "reference": "The encoder is composed of a stack of 6 identical layers."
+    },
+    {
+        "name": " Phi-CTNL model identification",
+        "intent": "Find, which model was used in the paper Test Set Is All You Need by Rylan Schaeffer.",
+        "reference": "The model was called phi-CTNL."
+    }
+]
