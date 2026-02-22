@@ -10,7 +10,7 @@ A small, interactive “agentic” CLI app built with **LangChain** that runs as
 The entrypoint is a simple terminal chat loop:
 ```
 bash python -m src.main
-``` 
+```
 
 ---
 

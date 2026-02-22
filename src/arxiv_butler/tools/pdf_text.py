@@ -41,7 +41,7 @@ def pdf_extract_text(
     logger.info(f"Parsing the pdf file from {file_path}")
 
     if not path.exists():
-        raise FileNotFoundError(f"PDF not found: {path}")
+        return "The paper needs to be downloaded first."
 
     if path.suffix.lower() != ".pdf":
         raise ValueError(f"Not a PDF file: {path}")
