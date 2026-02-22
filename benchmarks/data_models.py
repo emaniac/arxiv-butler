@@ -1,8 +1,10 @@
 import json
 from pathlib import Path
 
+from pydantic import BaseModel
 
-class EvaluationExample:
+
+class EvaluationExample(BaseModel):
     """Example for evaluating the agent's performance."""
 
     name: str

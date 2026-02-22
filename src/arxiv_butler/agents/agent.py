@@ -2,7 +2,7 @@ import os
 
 from langchain.agents import create_agent
 from langchain_core.messages import AnyMessage, HumanMessage
-from langchain_core.tools import Tool, BaseTool
+from langchain_core.tools import BaseTool
 from langchain_openai import ChatOpenAI
 from pydantic import BaseModel
 
@@ -30,17 +30,17 @@ class Agent:
     """Agent class for managing conversation state and executing tools."""
 
     def __init__(self, tools: list[BaseTool], system_prompt: str, completion_params: OpenAICompletionParams) -> None:
-        self._messages: list[AnyMessage] = []
+        self.messages: list[AnyMessage] = []
         api_key = os.getenv("OPENAI_API_KEY")
         self._llm = ChatOpenAI(api_key=api_key, **completion_params.model_dump())
         self._agent = create_agent(model=self._llm, tools=tools, system_prompt=system_prompt)
 
     def process_message(self, message: str) -> str:
         user_message = HumanMessage(content=message)
-        self._messages.append(user_message)
-        result = self._agent.invoke(dict(messages=self._messages))
-        self._messages = result["messages"]
-        return self._messages[-1].content
+        self.messages.append(user_message)
+        result = self._agent.invoke(dict(messages=self.messages))
+        self.messages = result["messages"]
+        return self.messages[-1].content
 
     def clear_messages(self) -> None:
         self._messages = []

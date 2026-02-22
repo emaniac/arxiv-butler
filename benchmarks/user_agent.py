@@ -3,11 +3,12 @@
 import textwrap
 
 from arxiv_butler.agents.agent import Agent, OpenAICompletionParams
+from arxiv_butler.constants import TERMINATE
 
-SYSTEM_PROMPT_TEMPLATE = textwrap.dedent("""
+SYSTEM_PROMPT_TEMPLATE = textwrap.dedent(f"""
     You are an assistant that interacts with another agent.
     Your goal is to fulfil a specific task only by interacting with the other agent.
-    When your task is completed, respond how was the task resolved and add "TERMINATE".
+    When your task is completed, respond how was the task resolved and add {TERMINATE}.
     if the task was a question, answer with a short answer.
     
     The other agent is an arXiv search assistant.
@@ -20,7 +21,7 @@ SYSTEM_PROMPT_TEMPLATE = textwrap.dedent("""
     When you get the message "START", you start your conversation.
 
     # Your task:
-    {intent}
+    {{intent}}
 """)
 
 
